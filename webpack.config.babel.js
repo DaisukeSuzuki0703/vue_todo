@@ -17,7 +17,7 @@ const config = {
   resolve: {
     extensions: ['.vue', '.js', '.json'],
     alias: {
-      TodoDir: `${src}/js/todo`,
+      TodoDir: `${src}/js/todo`,//${}変数を展開している。文字列の中で、結合する際に+を使用しない記法。バッククォートはこのように変数展開する際に用いる。
       TodoRouterDir: `${src}/js/todoRouter`,
       TodoVuexDir: `${src}/js/todoVuex`,
       VuexSample: `${src}/js/todoVuex_sample`,
