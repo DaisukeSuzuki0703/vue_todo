@@ -1,4 +1,4 @@
-const { VueLoaderPlugin } = require("vue-loader");
+const { VueLoaderPlugin } = require("vue-loader");//index.vueのstyleタグを適用してくれている。
 import path from 'path';
 
 const nodeEnv = process.env.NODE_ENV || 'development';
@@ -17,7 +17,7 @@ const config = {
   resolve: {
     extensions: ['.vue', '.js', '.json'],
     alias: {
-      TodoDir: `${src}/js/todo`,//${}変数を展開している。文字列の中で、結合する際に+を使用しない記法。バッククォートはこのように変数展開する際に用いる。
+      TodoDir: `${src}/js/todo`,//${}変数を展開している。文字列の中で、結合する際に+を使用しない記法。バッククォートはこのように変数展開する際に用いる。フォルダの中のindexファイルをインポートする。
       TodoRouterDir: `${src}/js/todoRouter`,
       TodoVuexDir: `${src}/js/todoVuex`,
       VuexSample: `${src}/js/todoVuex_sample`,
@@ -32,7 +32,7 @@ const config = {
     hot: true,
     port: 8080,
     contentBase: dist,
-    // historyApiFallback: true,
+    historyApiFallback: true,//
   },
   entry: {
     index: `${src}/js/index.js`

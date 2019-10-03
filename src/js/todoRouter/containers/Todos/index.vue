@@ -90,7 +90,7 @@ export default {
   created() {
     axios.get('http://localhost:3000/api/todos/').then(({ data }) => {
       this.todos = data.todos.reverse();
-      this.setFilter();
+      this.setFilter();//ルーティングの指定をしたときに指定したそれぞれのURLのnameによってdata(状態管理)のfilteredTodosの値を変えています。
     }).catch((err) => {
       this.showError(err);
       this.setFilter();
@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     setFilter() {
-      const routeName = this.$route.name;
+      const routeName = this.$route.name;//routes.jsのnameをrouteNameとしている。
       this.todoFilter = routeName;
       if (routeName === 'completedTodos') {
         this.filteredTodos = this.todos.filter(todo => todo.completed);

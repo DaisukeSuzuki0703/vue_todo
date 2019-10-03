@@ -42,8 +42,8 @@
 <script>
 export default {
   props: {
-    todoTitle: {
-      type: String,
+    todoTitle: { // 通常同じ名前でないと、propsを受け取らないといけないが、ハイフンつなぎで渡して、ハイフンなしでの受取りが可能。
+      type: String,//文法チェックしてくれるEslintでは上記のように受け取らなければ、警告が出てしまう。
       default: '',
     },
     todoDetail: {

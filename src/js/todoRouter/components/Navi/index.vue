@@ -9,6 +9,12 @@
 <script>
 export default {
 };
+//ページ遷移させるリンクは「todosRouter」フォルダの「components」フォルダの「Navi」のコンポーネントに書かれています。
+// <router-link class="todo__link__item" to="/">すべて表示</router-link>
+// <router-link class="todo__link__item" to="/incomplete">未完了のみ表示</router-link>
+// <router-link class="todo__link__item" to="/completed">完了済のみ表示</router-link>
+//to属性で遷移先のパスの指定をする。 　to属性には、location,文字列を入れることが可能。
+//router-linkタグを使うとaタグに変換されますが、デフォルトの挙動を制御してくれたり、tag属性で変換されるタグの指定ができたりするので、使用しやすい。
 </script>
 
 <style lang="scss" scoped>

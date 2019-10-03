@@ -114,18 +114,18 @@ export default {
   data() {
     return {
       todos: [
-        {
-          id: 1,
-          title: 'タイトル 01',
-          detail: '詳細 01',
-          completed: false,
-        },
-        {
-          id: 2,
-          title: 'タイトル 02',
-          detail: '詳細 02',
-          completed: false,
-        },
+        // {
+        //   id: 1,
+        //   title: 'タイトル 01',
+        //   detail: '詳細 01',
+        //   completed: false,
+        // },
+        // {
+        //   id: 2,
+        //   title: 'タイトル 02',
+        //   detail: '詳細 02',
+        //   completed: false,
+        // },
       ],
       targetTodo: {
         id: null,
@@ -183,7 +183,7 @@ export default {
         this.showError(err);//エラー表示をする。
       });
     },
-    changeCompleted(todo) {//実行するときにtmlのタグにchangeCompleted(todo)で引数に、対象となるTodoを渡しているので、メソッドを定義してるところで受け取れるようにします。
+    changeCompleted(todo) {//実行するときにhtmlのタグにchangeCompleted(todo)で引数に、対象となるTodoを渡しているので、メソッドを定義してるところで受け取れるようにします。
       // this.targetTodo = {
       //   id: null,
       //   title: '',
@@ -195,7 +195,7 @@ export default {
       axios.patch(`http://localhost:3000/api/todos/${targetTodo.id}`, {//PATCHでは既存のデータの上書きを行うので、更新したい項目と値の組を指定する必要があります。
       //${targetTodo.id}は対象のtodoのidを付与したもの、下記はtargetTodoのcompletedの値を反転させた値をリクエストと共に送っている。
         completed: !targetTodo.completed,
-      }).then(({ data }) => {
+      }).then(({ data }) => {//引数の中のdataというkeyを取ってきている。
         // console.log(this.todos);
         this.todos = this.todos.map((todoItem) => {//todoItemは変数の引数で置いている。
           if (todoItem.id === targetTodo.id) return data;//帰ってきたデータに置き換えている。クリックした時のtodo.idが同じ場合はクリックしたもの。
@@ -214,7 +214,7 @@ export default {
     editTodo() {
        const targetTodo = this.todos.find(todo => todo.id === this.targetTodo.id);//変数targetTodoはtodosの中の変数todo.idがリアクティブプロパティのidと等しいものを見つけてきたもの
         if (
-          targetTodo.title === this.targetTodo.title//変数targetTodoのtitleがリアクティブプロパティにあるtargetTodoが一緒かつdetalも同じ時。
+          targetTodo.title === this.targetTodo.title//変数targetTodoのtitleがリアクティブプロパティにあるtargetTodoと一緒かつdetalも同じ時。
           && targetTodo.detail === this.targetTodo.detail
         ) {
           // this.targetTodo = {
@@ -223,7 +223,7 @@ export default {
           //   detail: '',
           //   completed: false,
           // };
-          this.targetTodo = this.initTargetTodo();//何も変化がない場合、表示されているものが初期化される。
+          this.targetTodo = this.initTargetTodo();//何も変化がない場合、表示されているものが初期化される。//変化なしでのAPI通信をしたくない為、条件分岐を先にしている。
           return;
         }
         //${this.targetTodo.idは対象のリアクティブプロパティを付与したものをリクエストで送っている。

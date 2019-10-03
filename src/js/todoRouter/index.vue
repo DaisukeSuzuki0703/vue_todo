@@ -22,4 +22,5 @@ export default {
     font-size: 18px;
   }
 }
+//<router-view />がroute.jsに反映してくれる。
 </style>
