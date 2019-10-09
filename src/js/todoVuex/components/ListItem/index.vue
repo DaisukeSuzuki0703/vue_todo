@@ -31,7 +31,8 @@
         <button
           class="todo__item__btn__delete"
           type="button"
-        >
+          @click="deleteTodo(todo.id)"
+        ><!--削除ボタンを押した際に消えるイベントを追加-->
           削除
         </button>
       </div>
@@ -48,6 +49,7 @@ export default {
         return {};
       },
     },
+    id: Number,
   },
   methods: {
     changeCompleted: function(todo) {
@@ -56,6 +58,9 @@ export default {
     showEditor: function(todo) {
       this.$store.dispatch('showEditor', todo);
     },
+    deleteTodo: function(id) { // HTML部分でのイベントに対するメソッドを追加。
+      this.$store.dispatch('deleteTodo', id);//actionsのdeletetodoをidを第二引数にいれて呼び出している。
+    }
   },
 };
 </script>

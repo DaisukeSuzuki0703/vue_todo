@@ -19,6 +19,10 @@
 
       :props名="dataの値" => 子へ渡すprops
       @update:props名="dataの値 = 上の「propsに指定したい値」" => 子のイベント購読
+---------------------------------------------------------------------------------------------------
+      @update:todoTitle=" ... "の中に書かれている、$eventには「Register」コンポーネントで引数に渡した$event.target.valueが入ってくるので、
+      入力された値がdata(状態管理)のtargetTodo.titleに代入されてリアクティブプロパティの値が変更される。
+      変更がされたら、resisterコンポーネントに渡している値も変更されるので、:value=todoTitleの部分が変更される。
     -->
     <app-error-message
       v-if="errorMessage"

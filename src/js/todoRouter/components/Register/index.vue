@@ -12,6 +12,10 @@
       <!--
         :value="props名" => propsでvalueをバインド
         this.$emit('update:props名', propsに指定したい値) => 親に伝えるイベントの発火
+
+        inputタグで入力された値（todoTitle）を:valueで取得している。
+        →@keyup（キーボードが上がった時に発生するイベント）でemitを使用して入力された値を引数に（$event.target.value）を指定して
+        親要素のupdata:todoTitleのイベントを発火している
       -->
     </div>
     <div class="register__input">

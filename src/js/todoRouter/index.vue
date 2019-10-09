@@ -23,4 +23,5 @@ export default {
   }
 }
 //<router-view />がroute.jsに反映してくれる。
+//routesの中のコンポーネントが置き換わるもの。
 </style>
